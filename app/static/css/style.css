@@ -1,0 +1,231 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?yeq23f');
+    src:  url('../fonts/icomoon.eot?yeq23f#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?yeq23f') format('truetype'),
+      url('../fonts/icomoon.woff?yeq23f') format('woff'),
+      url('../fonts/icomoon.svg?yeq23f#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-time:before {
+    content: "\e900";
+  }
+  .icon-histogram:before {
+    content: "\e901";
+  }
+  .icon-table:before {
+    content: "\e902";
+  }
+  .icon-line:before {
+    content: "\e903";
+  }
+  .icon-pie:before {
+    content: "\e904";
+  }
+  .icon-bars:before {
+    content: "\e905";
+  }
+  .icon-resume:before {
+    content: "\e906";
+  }
+
+
+/* ----------------------------------------------------------- */
+
+
+
+body {
+    font-family: 'Oswald';
+    display: grid;
+    grid-template-columns: 10% 90%;
+    margin:0;
+    /* background-color: #c5c6c7; */
+}
+
+h1 {
+    margin:0;
+    font-family: roboto+condensed;
+    font-size:60px;
+    color:#45a2ff;
+}
+
+h2 {
+    font-family: roboto+condensed;
+    margin:0;
+    font-size:40px;
+    color:#45a2ff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* border: 1px solid #45A29E;
+    border-radius: 30px; */
+}
+
+table td, th{
+    /* border: 1px solid#c5c6c7; */
+    color: #eeeeee;
+}
+
+th,
+td {
+    border-bottom: 1px solid#c5c6c7;
+    margin:0;
+    text-align: center;
+    vertical-align: center;
+}
+
+th {
+    background-color: rgb(32, 139, 134);
+}
+
+tr:hover {
+    background-color:#45A29E;
+}
+
+
+/* ----------------------------------------------------------- */
+
+.menu-container {
+    background-color:#45A29E;
+    margin: 0;
+}
+
+/* ----------------------------------------------------------- */
+
+
+.menu {
+    position: fixed;
+}
+
+.menu-list {
+    list-style-type: none;
+    font-size: 50px;
+    text-align:center;
+    color:white;
+    margin:0.3em;
+    padding:0.45em;
+}
+
+.menu-list a {
+  color:white;
+  text-decoration: none;
+}
+
+.menu-list li{
+    padding: 0.05em;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.menu-list li:hover {
+    background-color: rgb(19, 141, 135);
+}
+
+/* ----------------------------------------------------------- */
+
+
+.information-container {
+    margin: 0;
+    display:grid;
+    grid-template-columns: 1fr;
+}
+
+/* ----------------------------------------------------------- */
+
+.description {
+    padding: 10px;
+    background-color:#1f2833;
+    color: #c5c6c7;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "title title ."
+                         ". description description";
+}
+
+.description h1 {
+  grid-area: title;
+}
+
+.description p {
+  grid-area: description;
+}
+/* ----------------------------------------------------------- */
+
+
+.data {
+    border-top: 1px solid  #c5c6c7;
+    padding: 0.8em;
+    background-color: #1f2833;
+    overflow: auto;
+    height: 250px;
+    display: block;
+    justify-content: center;
+    text-align:center;
+    
+}
+
+.data form input[type="file" i] {
+  width: 40%;
+  height: 1.8em;
+  padding: 0.2em 0.5em;
+  margin-right: 1em;
+  margin-bottom: 1.2em;
+  background-color: whitesmoke;
+  border:1px solid transparent;
+  border-radius: 7px;
+  cursor: pointer;
+  /* font-family: 'Oswald'; */
+  /* opacity:0; */
+
+}
+
+.data form button {
+  width: 12%;
+  height: 2.5em;
+  margin-bottom: 1.2em;
+  font-family: 'Oswald';
+  background-color:  rgb(19, 141, 135);
+  color: white;
+  border:1px solid transparent;
+  border-radius: 10px;
+}
+
+/* ----------------------------------------------------------- */
+
+
+.plot {
+    padding: 1em;
+    /* width:100%; */
+    border-top: 1px solid  #c5c6c7;
+}
+
+.charts {
+    margin: 0;
+    width:100%
+}
+
+.charts img {
+    margin: 0;
+    width:100%;
+}
