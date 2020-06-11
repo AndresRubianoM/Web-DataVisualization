@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+            <link rel="stylesheet" href= "{{url_for('static'), filename = "css/style.css"}}" />
+            <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Condensed&display=swap" rel="stylesheet">
+            <title>Data visualization</title>
+        {% endblock %}
+    </head>
+    <body>
+        <div class="menu-container">
+            <header>
+                {% block header %}
+                {% endblock %}
+            </header>
+        </div>
+
+        <div class="information-container">
+            <!-- title and description of the website -->
+            <section class="description" id="resume">
+                {% block description %}
+                {% endblock %}
+            </section>
+
+            <!-- Update form and table when is loaded -->
+            <section class="data" id="table-data">
+                {% block table %}
+                {% enblock %}
+            </section>
+
+            <!-- all the posible plots in the website -->
+            {% block plots %}
+            {% endblock %}
+
+
+        </div>
+
+    </body>
+</html>
