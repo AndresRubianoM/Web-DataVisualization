@@ -108,6 +108,7 @@ tr:hover {
 .menu-container {
     background-color:#45A29E;
     margin: 0;
+    height: 100vh;
 }
 
 /* ----------------------------------------------------------- */
