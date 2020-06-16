@@ -212,6 +212,11 @@ tr:hover {
   border-radius: 10px;
 }
 
+.data form button:hover {
+  background-color: rgb(9, 107, 102);
+  cursor: pointer;
+}
+
 /* ----------------------------------------------------------- */
 
 
