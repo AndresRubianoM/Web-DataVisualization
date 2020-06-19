@@ -1,5 +1,5 @@
 import os 
-from flask import  render_template, request, redirect, url_for, flash
+from flask import  render_template, request, redirect, url_for, flash, session
 from werkzeug import secure_filename
 
 #Local Imports
@@ -16,6 +16,8 @@ app = create_app()
 
 @app.route('/')
 def index():
+    filename = session.get('file_data_name')
+    
     return render_template('start.html')
 
 
@@ -38,13 +40,14 @@ def upload_file():
         if verify_extensions(file.filename):
             filename = secure_filename(file.filename)
             #Change the real name for a simpleone to manage the functions
-            new_filename = 'data' + '.' + filename.split('.')[-1]
+            #new_filename = 'data' + '.' + filename.split('.')[-1]
 
             #create directory if doesnt exists
             if not os.path.exists(app.config['UPLOAD_FOLDER']):
                 os.mkdir(app.config['UPLOAD_FOLDER'])
-                
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], new_filename))
+
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            session['file_data_name'] = filename
             return redirect(url_for('index'))
     
     return redirect(url_for('index'))
