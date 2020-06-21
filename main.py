@@ -7,6 +7,8 @@ from werkzeug import secure_filename
 from app import create_app
 #Function that manage the verifications of files extensions
 from app.verifications import verify_extensions
+#Function to tranform the data file for the templates
+from app.transform_to_list import Transform
 
 
 
@@ -16,9 +18,16 @@ app = create_app()
 
 @app.route('/')
 def index():
+    #Get the name of the file
     filename = session.get('file_data_name')
-    
-    return render_template('start.html')
+    context = {}
+    #Confirm the file exists and is permited.
+    if filename is not None:
+        table = Transform(filename, app.config['UPLOAD_FOLDER'])
+        context['head'] = table.list_values[0]
+        context['data'] = table.list_values[1::]
+
+    return render_template('start.html', **context)
 
 
 @app.route('/upload', methods = ['GET', 'POST'])
