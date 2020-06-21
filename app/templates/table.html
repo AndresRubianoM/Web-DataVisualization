@@ -2,3 +2,22 @@
     <input type="file" name = "uploaded_data">
     <button>add</button>
 </form>
+
+{% if data %}
+    <table>
+
+        {% for name in head %}
+            <th>{{name}}</th>
+        {% endfor %}
+
+        {% for rows in data %}
+            <tr>
+
+            {% for value in rows %}
+                <td>{{value}}</td>
+            {% endfor %}
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
