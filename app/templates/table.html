@@ -3,13 +3,17 @@
     <button>add</button>
 </form>
 
-{% if data %}
-    <table>
 
+<!-- Confirms if the table was passed -->
+{% if data %}
+    <!--render the table-->
+    <table>
+        <!-- Column names  -->
         {% for name in head %}
             <th>{{name}}</th>
         {% endfor %}
 
+        <!-- Pass each value of the rows -->
         {% for rows in data %}
             <tr>
 
