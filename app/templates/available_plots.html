@@ -1,0 +1,16 @@
+{% import 'form_plot_macro.html' as data %}
+
+<!-- Render the plot sections and buttons when the data is available --> 
+{% if head %}
+    <section class="pie plot" id="pie-chart">
+        <div class="type-and-data">
+            <h2>Pie chart</h2>
+            <div class="manage-data">
+                {{data.data_button(head, plot_action = "pie-add", button_name = "Add")}}
+                {{data.data_button(head, plot_action = "pie-remove", button_name = "Remove")}}
+            </div>
+        </div>
+    </section>
+
+
+{% endif %}
