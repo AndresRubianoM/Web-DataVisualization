@@ -51,33 +51,33 @@
             </nav>   
         </header>
     </div>
-        <div class="information-container">
-            <section class="description" id="resume">
-                <h1>
-                    WebApp Data visualization 
-                </h1>
-                <p>This is a simple website project made with HTML, CSS and Flask.</p>
-            </section>
+    <div class="information-container">
+        <section class="description" id="resume">
+            <h1>
+                WebApp Data visualization 
+            </h1>
+            <p>This is a simple website project made with HTML, CSS and Flask.</p>
+        </section>
 
 
-            <section class="data" id="table-data">
+        <section class="data" id="table-data">
                 
-                <form action="" enctype="multipart/form-data" method="POST" class="upload-file">
-                    <input type="file">
-                    <button>add</button>
-                </form>
+            <form action="" enctype="multipart/form-data" method="POST" class="upload-file">
+                <input type="file">
+                <button>add</button>
+            </form>
 
-                <table>
-                     <tr>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
-                      <th>Age</th>
-                    </tr>
-                    <tr>
-                      <td>Jill</td>
-                      <td>Smith</td>
-                         <td>50</td>
-                       </tr>
+            <table>
+                <tr>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Age</th>
+                </tr>
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                </tr>
                      <tr>
                       <td>Eve</td>
                        <td>Jackson</td>
@@ -230,8 +230,34 @@
                        </tr>
                   </table>
             </section>
+
             <section class="pie plot" id="pie-chart">
-                <h2>Pie chart</h2>
+                <div class="type-and-data">
+                    <h2>Pie chart</h2>
+                    <div class="manage-data">
+                        <form action="" method="POST">
+                            <select name="columns" id="pie-add">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                            <button>add</button>
+                        </form>
+                        <form action="" method="POST">
+                            <select name="columns" id="pie-remove">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                            <button>Remove</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
                 <figure class="charts">
                     <img src="images/pie.png" alt="">
                 </figure>
