@@ -85,7 +85,7 @@ class Transform:
         
                 
     def _absolute_path(self):
-        '''Define the absolute path to de file'''
+        '''Define the absolute path to the file'''
         if self.route is not None:
             #Asolute path to the current script
             my_path = os.path.abspath(os.path.dirname(__file__))
