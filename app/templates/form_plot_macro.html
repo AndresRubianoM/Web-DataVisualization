@@ -1,8 +1,8 @@
 <!-- Function to render the possible columns to add or remove -->
-{% macro data_button(head, plot_action, button_name) %}
+{% macro data_button(possible_columns, plot_action, button_name) %}
     <form action="{{url_for('columns_data')}}" method="POST">
         <select name="{{plot_action}}" id= "{{plot_action}}">
-            {% for name in head %}
+            {% for name in possible_columns %}
                 <option value="{{name}}"> {{name}} </option>
             {% endfor %}
         </select>
