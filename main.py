@@ -26,9 +26,24 @@ def index():
     context = {}
 
     #Check each one of the buttons information
-    add_pie = session.get('pie-add')
-    remove_pie = session.get('pie-remove')
+    buttons_plot_data = {
+        'Pie': {'add': session.get('Pie-add'),
+                'remove': session.get('Pie-remove')},
 
+        'Bar': {'add': session.get('Bar-add'),
+                'remove': session.get('Bar-remove')},
+
+        'Histogram':{'add': session.get('Histogram-add'),
+                'remove': session.get('Histogram-remove')},
+        
+        'Line': {'add': session.get('Line-add'),
+                'remove': session.get('Line-remove')},
+        
+        'Scatter': {'add': session.get('Scatter-add'),
+                'remove': session.get('Scatter-remove')},
+
+    }
+    
     #Confirm the file exists and is permited.
     if filename is not None:
         # Class that take the file and parsed to render
@@ -37,7 +52,25 @@ def index():
         context['head'] = table.list_values[0]
         context['data'] = table.list_values[1::]
         #Values for the buttons (needs to reassing the actual values to the session to not acumulate the same values)
-        context['pie_col_add'], context['pie_col_remove'], session['pie-add'], session['pie-remove'] = context_buttons(add_pie, remove_pie, context['head'])
+        context['pie_col_add'], context['pie_col_remove'], session['Pie-add'], session['Pie-remove'] = context_buttons(buttons_plot_data['Pie']['add'],
+                                                                                                                       buttons_plot_data['Pie']['remove'], 
+                                                                                                                       context['head'])
+
+        context['bar_col_add'], context['bar_col_remove'], session['Bar-add'], session['Bar-remove'] = context_buttons(buttons_plot_data['Bar']['add'],
+                                                                                                                       buttons_plot_data['Bar']['remove'], 
+                                                                                                                       context['head'])
+
+        context['hist_col_add'], context['hist_col_remove'], session['Histogram-add'], session['Histogram-remove'] = context_buttons(buttons_plot_data['Histogram']['add'],
+                                                                                                                       buttons_plot_data['Histogram']['remove'], 
+                                                                                                                       context['head'])
+        
+        context['line_col_add'], context['line_col_remove'], session['Line-add'], session['Line-remove'] = context_buttons(buttons_plot_data['Line']['add'],
+                                                                                                                       buttons_plot_data['Line']['remove'], 
+                                                                                                                       context['head'])
+        
+        context['scatter_col_add'], context['scatter_col_remove'], session['Scatter-add'], session['Scatter-remove'] = context_buttons(buttons_plot_data['Scatter']['add'],
+                                                                                                                       buttons_plot_data['Scatter']['remove'], 
+                                                                                                                       context['head'])
         
     return render_template('start.html', **context)
 
