@@ -1,0 +1,13 @@
+{% import 'form_plot_macro.html' as data %}
+
+{% macro plot_section(data_add, data_remove,plot_name) %}
+    <section class= "{{ plot_name + ' plot'}}" id="{{ plot_name + '-chart'}}">
+        <div class="type-and-data">
+            <h2>{{plot_name + ' chart'}}</h2>
+            <div class="manage-data">
+                {{data.data_button(data_add, plot_action =  plot_name + "-add", button_name = "Add")}}
+                {{data.data_button(data_remove, plot_action = plot_name + "-remove", button_name = "Remove")}} 
+            </div>
+        </div>
+    </section>
+{% endmacro %}
