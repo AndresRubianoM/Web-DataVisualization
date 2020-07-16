@@ -1,16 +1,22 @@
-{% import 'form_plot_macro.html' as data %}
+
+{% import 'plot_sections_macro.html' as plot_section_definer %}
 
 <!-- Render the plot sections and buttons when the data is available --> 
 {% if head %}
-    <section class="pie plot" id="pie-chart">
-        <div class="type-and-data">
-            <h2>Pie chart</h2>
-            <div class="manage-data">
-                {{data.data_button(pie_col_add, plot_action = "pie-add", button_name = "Add")}}
-                {{data.data_button(pie_col_remove, plot_action = "pie-remove", button_name = "Remove")}}
-            </div>
-        </div>
-    </section>
+    <!-- PIE PLOT -->
+    {{plot_section_definer.plot_section(pie_col_add, pie_col_remove ,plot_name = "Pie")}}
+
+    <!-- BAR CHART -->
+    {{plot_section_definer.plot_section(bar_col_add, bar_col_remove ,plot_name = "Bar")}}
+
+    <!-- HISTOGRAM CHART -->
+    {{plot_section_definer.plot_section(hist_col_add, hist_col_remove ,plot_name = "Histogram")}}
+
+    <!-- LINE CHART -->
+    {{plot_section_definer.plot_section(line_col_add, line_col_remove ,plot_name = "Line")}}
+
+    <!-- SCATTER CHART -->
+    {{plot_section_definer.plot_section(line_col_add, line_col_remove ,plot_name = "Scatter")}}
 
 
 {% endif %}
