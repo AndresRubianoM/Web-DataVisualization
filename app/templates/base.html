@@ -2,9 +2,16 @@
 <html lang="en">
     <head>
         {% block head %}
-            <link rel="stylesheet" href= "{{url_for('static', filename = "css/style.css")}}" />
+            <link rel="stylesheet" href= "{{url_for('static', filename = 'css/style.css')}}" />
             <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Condensed&display=swap" rel="stylesheet">
-            <title>Data visualization</title>
+            <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+            <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+            <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js"></script>
+            <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"></script>
+            <script type="text/javascript">
+                    Bokeh.set_log_level("info");
+            </script>
+            <title>Data visualization</title>    
         {% endblock %}
     </head>
     <body>
@@ -31,7 +38,13 @@
             <!-- all the posible plots in the website divide in sections-->
             {% block plots %}
             {% endblock %}
-
+            
         </div>
+
+        <!-- all the scirpts needed to fetch th bokeh graphs -->
+        {% block scripts %}
+        {% endblock %}
+
+
     </body>
 </html>
