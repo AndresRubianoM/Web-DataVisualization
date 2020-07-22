@@ -1,6 +1,11 @@
 import os 
+import json
 from flask import  render_template, request, redirect, url_for, session
 from werkzeug import secure_filename
+
+#Bokeh imports
+from bokeh.resources import CDN
+from bokeh.embed import json_item
 
 #Local Imports
 #Function create and configure the app
@@ -11,6 +16,9 @@ from app.verifications import verify_extensions
 from app.transform_to_list import Transform
 #Function context buttons 
 from app.buttons_context_aux import context_buttons
+#Function to plot 
+from app.plots_functions import pie_graph
+from app.plots_functions import bar_graph
 
 
 
@@ -48,6 +56,8 @@ def index():
     if filename is not None:
         # Class that take the file and parsed to render
         table = Transform(filename, app.config['UPLOAD_FOLDER'])
+        #Links needed for the bokeh plots
+        context['resources'] = CDN.render()
         #Values fot the table
         context['head'] = table.list_values[0]
         context['data'] = table.list_values[1::]
@@ -132,20 +142,28 @@ def columns_data():
         session[key] = available_cols
         
         return redirect(url_for('index'))
+
+
+@app.route('/plot_pie')
+def plot_pie():
+    #Define the data to be graph
+    filename = session.get('file_data_name')
+    #Columns added to be plot
+    data_graph = session.get('Pie-add')
+    #Organize the data and make the plot
+    if (data_graph is not None) and (len(data_graph) > 0):
+        #tranform the table
+        table = Transform(filename, app.config['UPLOAD_FOLDER'])
+        table_selected_data = table.select_data(data_graph)
+        p = bar_graph(data_graph, table_selected_data)
+    
+        return  json.dumps(json_item(p, "myplot"))
+
+
         
 
-
-
-
-            
-        
-        
-
+    
 
         
-
-            
-
-
-
+        
 
