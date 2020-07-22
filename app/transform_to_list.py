@@ -11,8 +11,9 @@ class Transform:
         self.extension = self.file.split('.')[-1]
         self._path = self._absolute_path()
         self.list_values = self._proceed()
+
         
-    def list_from_csv(self):
+    def _list_from_csv(self):
         rows_list = []
         path = self._absolute_path()
         with open(self._path, 'r') as file:
@@ -23,8 +24,9 @@ class Transform:
                 rows_list.append(line.split(','))
 
         return rows_list
+
     
-    def list_from_xlsx(self):
+    def _list_from_xlsx(self):
         file = openpyxl.load_workbook(self._path)
         sheet = file.active
         rows_list = []
@@ -37,8 +39,9 @@ class Transform:
             rows_list.append(value_list)
         
         return rows_list
+
     
-    def list_from_json(self):
+    def _list_from_json(self):
         rows_list = []
         with open(self._path, 'r') as file:
             data = json.load(file)
@@ -48,7 +51,8 @@ class Transform:
             
         return rows_list
 
-    def list_from_html(self):
+
+    def _list_from_html(self):
         rows_list = []
         with open(self._path, 'r') as file:
             data = file.read()
@@ -68,21 +72,19 @@ class Transform:
             return rows_list
 
 
-
     def _proceed(self):
         '''Select the procedure to each of the valid extensions'''
         if self.extension == 'csv':
-            return self.list_from_csv()
+            return self._list_from_csv()
         elif self.extension == 'xlsx':
-            return  self.list_from_xlsx()
+            return  self._list_from_xlsx()
         elif self.extension == 'json':
-            return  self.list_from_json()
+            return  self._list_from_json()
         elif self.extension == 'html':
-            return self.list_from_html()
+            return self._list_from_html()
         else:
             return None
 
-        
                 
     def _absolute_path(self):
         '''Define the absolute path to the file'''
@@ -95,6 +97,32 @@ class Transform:
             return path
         else:
             return None
+
+
+    def _index_select_data(self, data_to_select):
+        index_data = []
+        #find and add the index of each column
+        for col in data_to_select:
+            if col in self.list_values[0]:
+                index_data.append(self.list_values[0].index(col))
+        return index_data
+
+
+    def select_data(self, data_to_select):
+        #Returns the selected columns of the table into rows
+        selected_data = []
+        index = self._index_select_data(data_to_select)
+        for i in index:
+            row = []
+            for val in self.list_values[1:]:
+                row.append(val[i])
+
+            selected_data.append(row)
+        return selected_data
+
+
+    
+
 
 
     
