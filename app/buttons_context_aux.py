@@ -31,8 +31,8 @@ def context_buttons(columns_add, columns_remove, default):
         data_remove = []
 
     
-    data_add.sort()
-    data_remove.sort()
+    #data_add.sort()
+    #data_remove.sort()
 
     return data_add, data_remove, columns_add, columns_remove
 
