@@ -1,0 +1,5 @@
+<script>
+    fetch('/plot_pie')
+      .then(function(response) { return response.json(); })
+      .then(function(item) { return Bokeh.embed.embed_item(item); })
+</script>
