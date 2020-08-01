@@ -17,8 +17,8 @@ from app.transform_to_list import Transform
 #Function context buttons 
 from app.buttons_context_aux import context_buttons
 #Function to plot 
-from app.plots_functions import pie_graph
-from app.plots_functions import bar_graph
+from app.plots_functions import pie_graph, bar_graph, histogram_plot, line_plot, scatter_plot, select_and_plot
+
 
 
 
@@ -48,7 +48,7 @@ def index():
                 'remove': session.get('Line-remove')},
         
         'Scatter': {'add': session.get('Scatter-add'),
-                'remove': session.get('Scatter-remove')},
+                    'remove': session.get('Scatter-remove')},
 
     }
     
@@ -146,19 +146,34 @@ def columns_data():
 
 @app.route('/plot_pie')
 def plot_pie():
-    #Define the data to be graph
-    filename = session.get('file_data_name')
-    #Columns added to be plot
-    data_graph = session.get('Pie-add')
-    #Organize the data and make the plot
-    if (data_graph is not None) and (len(data_graph) > 0):
-        #tranform the table
-        table = Transform(filename, app.config['UPLOAD_FOLDER'])
-        table_selected_data = table.select_data(data_graph)
-        p = bar_graph(data_graph, table_selected_data)
-    
-        return  json.dumps(json_item(p, "myplot"))
+    p = select_and_plot(session, 'Pie-add', pie_graph, app.config['UPLOAD_FOLDER'])
+    return  json.dumps(json_item(p, "Pie-image"))
 
+
+@app.route('/plot_bar')
+def plot_bar():
+    p = select_and_plot(session, 'Bar-add', bar_graph, app.config['UPLOAD_FOLDER'])
+    return  json.dumps(json_item(p, "Bar-image"))
+
+
+@app.route('/plot_hist')
+def plot_hist():
+   
+    p = select_and_plot(session, 'Histogram-add', histogram_plot, app.config['UPLOAD_FOLDER'])
+    return  json.dumps(json_item(p, "Histogram-image"))
+
+
+@app.route('/plot_line')
+def plot_line():
+   
+    p = select_and_plot(session, 'Line-add', line_plot, app.config['UPLOAD_FOLDER'])
+    return  json.dumps(json_item(p, "Line-image"))
+
+
+@app.route('/plot_scatter')
+def plot_scatter():
+    p = select_and_plot(session, 'Scatter-add', scatter_plot, app.config['UPLOAD_FOLDER'])
+    return  json.dumps(json_item(p, "Scatter-image"))
 
         
 
