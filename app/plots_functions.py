@@ -1,6 +1,5 @@
 from math import pi
 import numpy as np
-#import itertools
 
 from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource, FactorRange
@@ -12,6 +11,13 @@ from .transform_to_list import Transform
 
 
 def select_and_plot(session, name_button, plot_function, upload_folder):
+    """Function to manage the data and plot selection
+
+    session: session of Flask
+    name_button: Name of the button that pass the form value (String)
+    plot_function: Plot function (function)
+    upload_folder: Name of the folder where the file is (string)"""
+
     #Define the data to be graph
     filename = session.get('file_data_name')
     #Columns added to be plot
@@ -24,10 +30,10 @@ def select_and_plot(session, name_button, plot_function, upload_folder):
         table_selected_data = table.select_data(data_graph)
         #Plot
         p = plot_function(data_graph, table_selected_data)
-    
+
         return p
 
-        
+
 
 def transform_to_num(col_names, data):
     """Transform the strings value into floats, the categorical values will be left apart, the 
