@@ -3,3 +3,27 @@
       .then(function(response) { return response.json(); })
       .then(function(item) { return Bokeh.embed.embed_item(item); })
 </script>
+
+<script>
+  fetch('/plot_bar')
+      .then(function(response) { return response.json(); })
+      .then(function(item) { return Bokeh.embed.embed_item(item); })
+</script>
+
+<script>
+  fetch('/plot_hist')
+      .then(function(response) { return response.json(); })
+      .then(function(item) { return Bokeh.embed.embed_item(item); })
+</script>
+
+<script>
+  fetch('/plot_line')
+      .then(function(response) { return response.json(); })
+      .then(function(item) { return Bokeh.embed.embed_item(item); })
+</script>
+
+<script>
+  fetch('/plot_scatter')
+      .then(function(response) { return response.json(); })
+      .then(function(item) { return Bokeh.embed.embed_item(item); })
+</script>
