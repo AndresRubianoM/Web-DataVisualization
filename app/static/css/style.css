@@ -55,7 +55,7 @@
 body {
     font-family: 'Oswald';
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 10.5fr;
     grid-template-rows: auto;
     grid-template-areas: "menu-list information";
     margin:0;
@@ -146,9 +146,10 @@ form button:hover {
   text-decoration: none;
 }
 
-.menu-list li{
+.menu-list li {
     /* padding: 0.05em;
     border: 1px solid transparent; */
+    margin-top: 0.15em;
     border-radius: 5px;
 }
 
@@ -163,7 +164,7 @@ form button:hover {
     margin: 0;
     display:grid;
     grid-area: information;
-    grid-template-columns: 90vw;
+    /* grid-template-columns: 90vw; */
     /* position: relative;
     left: 10vw;  */
 
