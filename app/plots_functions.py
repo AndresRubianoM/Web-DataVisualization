@@ -32,6 +32,8 @@ def select_and_plot(session, name_button, plot_function, upload_folder):
         p = plot_function(data_graph, table_selected_data)
 
         return p
+    else:
+        return None
 
 
 
