@@ -188,6 +188,7 @@ form button:hover {
 }
 
 .description p {
+  padding-right: 0.5em;
   grid-area: description;
 }
 /* ----------------------------------------------------------- */
