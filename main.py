@@ -158,14 +158,12 @@ def plot_bar():
 
 @app.route('/plot_hist')
 def plot_hist():
-   
     p = select_and_plot(session, 'Histogram-add', histogram_plot, app.config['UPLOAD_FOLDER'])
     return  json.dumps(json_item(p, "Histogram-image"))
 
 
 @app.route('/plot_line')
 def plot_line():
-   
     p = select_and_plot(session, 'Line-add', line_plot, app.config['UPLOAD_FOLDER'])
     return  json.dumps(json_item(p, "Line-image"))
 
