@@ -125,7 +125,7 @@ def bar_graph(col_names, data):
     source = ColumnDataSource(data = dict(x = x, counts = counts))
 
     #Bokeh plot configuration
-    p = figure(plot_height = 500, plot_width = 900, x_range = FactorRange(*x))
+    p = figure(plot_height = 600, plot_width = 800, x_range = FactorRange(*x))
     p.vbar(x = 'x', top = 'counts', width = 0.9, line_color = 'white', source = source,
      fill_color = factor_cmap('x', palette = Spectral5, factors = data_bokeh['data_col'], start = 1, end = 2) )
     p.x_range.range_padding = 0.1
@@ -148,7 +148,7 @@ def histogram_plot(col_names, data):
     hist, edges = np.histogram(list(hist_data.values())[0], density = True, bins = 30)
 
     #Bokeh plot configuration
-    p = figure(plot_height = 500, plot_width = 900)
+    p = figure(plot_height = 600, plot_width = 800)
     p.quad(top = hist, bottom = 0, left = edges[:-1], right = edges[1:], line_color = 'white')
 
     return p 
@@ -167,7 +167,7 @@ def line_plot(col_names, data):
     source = ColumnDataSource(line_data)
 
     #Bokeh plot configuration
-    p = figure(plot_height = 500, plot_width = 900)
+    p = figure(plot_height = 600, plot_width = 800)
     for key, color in zip(range(len(line_data.keys())), Category20[20]):
         if key != 0:
             p.line(x = list(line_data.values())[0], y = list(line_data.values())[key], color = color, 
@@ -189,7 +189,7 @@ def scatter_plot(col_names, data):
     source = ColumnDataSource(scatter_data)
 
     #Bokeh plot configuration
-    p = figure(plot_height = 500, plot_width = 900)
+    p = figure(plot_height = 600, plot_width = 800)
     for key, color in zip(range(len(scatter_data.keys())), Category20[20]):
         if key != 0:
             p.scatter(x = list(scatter_data.values())[0], y = list(scatter_data.values())[key], color = color, 
