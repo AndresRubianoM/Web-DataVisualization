@@ -124,6 +124,10 @@ def upload_file():
 def columns_data():
     '''Get the values from the buttons for each plot and each. Keeps the values on a session'''
     if request.method == 'POST':
+        #Confirms the form have the key
+        if len(list(request.form.keys())) == 0:
+            return redirect(url_for('index'))
+
         #Get the key and its value of each one of the buttons per plot
         key = list(request.form.keys())[0]
         col = request.form.get(key)
