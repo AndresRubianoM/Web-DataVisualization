@@ -1,5 +1,5 @@
 # Web-DataVisualization
-Single Page Application for data visualization of files using HTML, CSS, Python and a little of JavaScript.
+Multi Page Application for data visualization of files using HTML, CSS, Python and a little of JavaScript.
 
 ## Libraries
 The principal libraries used were Flask for the app and bokeh for the plots. I tried to not use more libraries and develop the most part of the functionalities to practice the manage/format of the files and HTTP communications required to interact between the uploaded data and the plots, for this reason I also choose to use bokeh instead of the visualization libraries available in JS.
